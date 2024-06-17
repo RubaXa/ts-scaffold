@@ -1,0 +1,50 @@
+{
+	"name": "ts-scaffold",
+	"type": "module",
+	"version": "0.1.0",
+	"description": "TypeScript project scaffold",
+	"exports": {
+		".": {
+			"import": "./dist/ts-scaffold.js",
+			"require": "./dist/ts-scaffold.cjs"
+		}
+	},
+	"main": "./dist/ts-scaffold.cjs",
+	"module": "./dist/ts-scaffold.js",
+	"types": "./dist/ts-scaffold.d.ts",
+	"files": [
+		"CHANGELOG.md",
+		"LICENSE",
+		"README.md",
+		"dist"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build:ts": "tsc",
+		"release": "pnpm test && pnpm build:ts && changelogen --release --push && pnpm publish",
+		"lint": "eslint . --fix",
+		"test": "vitest --run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest --coverage",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^2.21.1",
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@types/node": "^20.14.2",
+		"@vitest/coverage-v8": "^1.6.0",
+		"camelcase": "^8.0.0",
+		"changelogen": "^0.5.5",
+		"eslint": "^9.5.0",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.7",
+		"typescript": "^5.4.5",
+		"vite": "^5.3.1",
+		"vite-plugin-dts": "^3.9.1",
+		"vitest": "^1.6.0"
+	},
+	"lint-staged": {
+		"*.ts": "pnpm run lint"
+	}
+}

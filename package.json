@@ -22,7 +22,7 @@
 		"dev": "vite",
 		"build:ts": "tsc",
 		"release": "pnpm test && pnpm build:ts && changelogen --release --push && pnpm publish",
-		"lint": "eslint . --fix",
+		"lint": "tsc --noEmit && eslint . --fix",
 		"test": "vitest --run",
 		"test:watch": "vitest",
 		"test:coverage": "vitest --coverage",
